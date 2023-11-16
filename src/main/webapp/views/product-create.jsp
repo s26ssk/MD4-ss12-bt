@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,6 +25,14 @@
                 <div class="form-group">
                 <label>Product Price:</label>
                 <form:input type="text" class="form-control" path="productPrice"/>
+                </div>
+                <div class="form-group">
+                    <label>Select Category:</label>
+                    <form:select class="form-control" aria-label="Default select example" path="category.categoryId">
+                        <c:forEach items="${categories}" var="category">
+                            <option value="${category.categoryId}">${category.categoryName}</option>
+                        </c:forEach>
+                    </form:select>
                 </div>
                 <button type="submit" class="btn btn-primary">Add New</button>
             </form:form>

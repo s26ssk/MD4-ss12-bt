@@ -2,34 +2,37 @@ package com.ra.model.service;
 
 import com.ra.model.dao.CategoryDAOImp;
 import com.ra.model.entity.Category;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-public class CategoryService implements IGenericService<Category, Integer> {
-    private final CategoryDAOImp categoryDAO = new CategoryDAOImp();
+@Service
+public class CategoryServiceImp implements CategoryService {
+    @Autowired
+    private CategoryDAOImp categoryDAO;
 
     @Override
     public List<Category> findAll() {
-        return null;
+        return categoryDAO.findAll();
     }
 
     @Override
     public Boolean create(Category category) {
-        return null;
+        return categoryDAO.create(category);
     }
 
     @Override
     public Boolean update(Category category, Integer integer) {
-        return null;
+        return categoryDAO.update(category, integer);
     }
 
     @Override
     public Category findId(Integer integer) {
-        return null;
+        return categoryDAO.findId(integer);
     }
 
     @Override
     public void delete(Integer integer) {
-
+        categoryDAO.delete(integer);
     }
 }

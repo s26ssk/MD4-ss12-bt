@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,18 +17,28 @@
         <div class="col-lg-6 mt-5">
             <h1 class="text-center mb-3">Edit Product</h1>
             <form:form action="/product/update/${product.productCode}" method="post" modelAttribute="product">
-                <div class="form-group">
-                    <label>Product Code:</label>
-                    <input class="form-control" type="text" name="productCode" value="${product.productCode}" readonly/>
-                </div>
-                <div class="form-group">
-                    <label>Product Name:</label>
-                    <input class="form-control" type="text" name="productName" value="${product.productName}"/>
-                </div>
-                <div class="form-group">
-                    <label>Product Price:</label>
-                    <input class="form-control" type="text" name="productPrice" value="${product.productPrice}"/>
-                </div>
+            <div class="form-group">
+                <label>Product Code:</label>
+                <form:input class="form-control" type="text" path="productCode" value="${product.productCode}" readonly="true"/>
+            </div>
+            <div class="form-group">
+                <label>Product Name:</label>
+                <form:input class="form-control" type="text" path="productName" value="${product.productName}"/>
+            </div>
+            <div class="form-group">
+                <label>Product Price:</label>
+                <form:input class="form-control" type="text" path="productPrice" value="${product.productPrice}"/>
+            </div>
+            <div class="form-group">
+                <label>Select Category:</label>
+                <form:select class="form-control" path="category.categoryId">
+                    <c:forEach items="${categories}" var="category">
+                        <option value="${category.categoryId}" ${category.categoryId == product.category.categoryId ? "selected" : ""}>
+                                ${category.categoryName}</option>
+                    </c:forEach>
+                </form:select>
+            </div>
+
                 <input class="btn btn-primary" type="submit" value="Update"/>
             </form:form>
         </div>

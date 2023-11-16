@@ -1,4 +1,4 @@
-package com.ra.model.util;
+package com.ra.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

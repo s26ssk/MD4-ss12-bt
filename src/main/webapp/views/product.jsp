@@ -22,6 +22,7 @@
                     <th>Product Code</th>
                     <th>Product Name</th>
                     <th>Product Price</th>
+                    <th>Category Name</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -30,6 +31,7 @@
                         <td>${product.productCode}</td>
                         <td>${product.productName}</td>
                         <td>${product.productPrice}</td>
+                        <td>${product.category.categoryName}</td>
                         <td>
                             <a class="btn btn-warning" href="/product/edit/${product.productCode}">Edit</a>
                             <a class="btn btn-danger" href="/product/delete/${product.productCode}">Delete</a>

@@ -2,13 +2,15 @@ package com.ra.model.service;
 
 import com.ra.model.dao.ProductDAOImp;
 import com.ra.model.entity.Product;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+@Service
+public class ProductServiceImp implements ProductService{
 
-public class ProductService implements IGenericService<Product, Integer> {
-
-
-    private final ProductDAOImp productDAO = new ProductDAOImp();
+    @Autowired
+    private ProductDAOImp productDAO;
 
     @Override
     public List<Product> findAll() {
